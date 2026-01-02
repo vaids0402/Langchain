@@ -1,0 +1,89 @@
+{
+    "dataset": {
+        "name": "RAG Evaluation Dataset",
+        "description": "Evaluation dataset to detect retriever failures, prompt regressions, and hallucinations",
+        "test_cases": [
+            {
+                "id": "problem_definition_tasks",
+                "question": "What are the main tasks involved in defining a marketing research problem?",
+                "expected_answer": "The main tasks involved are discussions with decision makers, interviews with industry experts, secondary data analysis, and qualitative research.",
+                "expected_sources": [
+                "discussions with decision makers",
+                "industry experts",
+                "secondary data",
+                "qualitative research"
+                ]
+            },
+            {
+                "id": "seven_cs_interaction",
+                "question": "What are the seven Cs of interaction between the decision maker and the researcher?",
+                "expected_answer": "The seven Cs are communication, cooperation, confidence, candor, closeness, continuity, and creativity.",
+                "expected_sources": [
+                "seven Cs",
+                "communication",
+                "cooperation",
+                "confidence",
+                "candor",
+                "closeness",
+                "continuity",
+                "creativity"
+                ]
+            },
+            {
+                "id": "management_vs_marketing_problem",
+                "question": "How does a management decision problem differ from a marketing research problem?",
+                "expected_answer": "A management decision problem focuses on what action should be taken, while a marketing research problem focuses on what information is needed to make that decision.",
+                "expected_sources": [
+                "management decision problem",
+                "marketing research problem",
+                "information needed"
+                ]
+            },
+            {
+                "id": "research_design_definition",
+                "question": "What is a research design in marketing research?",
+                "expected_answer": "A research design is a framework or blueprint that specifies the procedures for obtaining the information needed to solve a marketing research problem.",
+                "expected_sources": [
+                "research design",
+                "framework",
+                "blueprint",
+                "procedures"
+                ]
+            },
+            {
+                "id": "exploratory_descriptive_causal",
+                "question": "What are the three main types of marketing research designs?",
+                "expected_answer": "The three main types of marketing research designs are exploratory research, descriptive research, and causal research.",
+                "expected_sources": [
+                "exploratory research",
+                "descriptive research",
+                "causal research"
+                ]
+            },
+            {
+                "id": "primary_vs_secondary_data",
+                "question": "How do primary data differ from secondary data?",
+                "expected_answer": "Primary data are collected specifically for the problem at hand, while secondary data are collected for other purposes and already exist.",
+                "expected_sources": [
+                "primary data",
+                "secondary data",
+                "problem at hand",
+                "already collected"
+                ]
+            },
+            {
+                "id": "secondary_data_evaluation",
+                "question": "What criteria are used to evaluate secondary data?",
+                "expected_answer": "Secondary data are evaluated based on specifications, error, currency, objectives, nature, and dependability.",
+                "expected_sources": [
+                "specifications",
+                "error",
+                "currency",
+                "objective",
+                "nature",
+                "dependability"
+                ]
+            }
+        ]
+    }
+}

@@ -21,15 +21,45 @@ class RAGSearch:
         self.llm = ChatGroq(groq_api_key=groq_api_key, model_name=llm_model)
         print(f"[INFO] Groq LLM initialized: {llm_model}")
 
-    def search_and_summarize(self, query: str, top_k: int = 5) -> str:
+    # def search_and_summarize(self, query: str, top_k: int = 5) -> str:
+    #     results = self.vectorstore.query(query, top_k=top_k)
+    #     texts = [r["metadata"].get("text", "") for r in results if r["metadata"]]
+    #     context = "\n\n".join(texts)
+    #     if not context:
+    #         return "No relevant documents found."
+    #     prompt = f"""Summarize the following context for the query: '{query}'\n\nContext:\n{context}\n\nSummary:"""
+    #     response = self.llm.invoke([prompt])
+    #     return response.content
+
+    def search_and_summarize(
+        self,
+        query: str,
+        top_k: int = 5,
+        return_docs: bool = False
+    ):
         results = self.vectorstore.query(query, top_k=top_k)
+
         texts = [r["metadata"].get("text", "") for r in results if r["metadata"]]
         context = "\n\n".join(texts)
+
         if not context:
-            return "No relevant documents found."
-        prompt = f"""Summarize the following context for the query: '{query}'\n\nContext:\n{context}\n\nSummary:"""
+            answer = "No relevant documents found."
+            return (answer, texts) if return_docs else answer
+
+        prompt = f"""Summarize the following context for the query: '{query}'
+
+    Context:
+    {context}
+
+    Summary:
+    """
         response = self.llm.invoke([prompt])
-        return response.content
+        answer = response.content
+
+        if return_docs:
+            return answer, texts 
+
+        return answer
 
 # Example usage
 if __name__ == "__main__":
