@@ -1,8 +1,10 @@
-# 📄 PDF Question Answering using RAG (LangChain + Groq)
+# 📄 PDF Question Answering using RAG (LangChain + Groq + Evaluation Framework)
 
 ## 📌 Overview
 This project implements a **Retrieval-Augmented Generation (RAG)** pipeline using **LangChain** that allows users to ask questions based on the content of **PDF documents**.  
 The system retrieves relevant context from uploaded PDFs and uses a **Groq-hosted LLM** to generate accurate, context-aware answers.
+The system retrieves relevant context from uploaded PDFs using vector similarity search and generates grounded, context-aware answers using Groq-hosted LLMs.
+It also includes a formal **evaluation framework** to detect retriever failures, hallucinations, and prompt regressions.
 
 ---
 
@@ -12,6 +14,8 @@ The system retrieves relevant context from uploaded PDFs and uses a **Groq-hoste
 - Uses **Retrieval-Augmented Generation (RAG)** for grounded answers
 - Powered by **Groq LLMs (LLaMA 3)**
 - Modular and extensible **LangChain-based architecture**
+- Built-in **evaluation framework** with retriever quality checks, hallucination detection and answer quality scoring using LLM-as-a-judge
+- **Regression detection** after prompt or model changes
 - Secure API key handling using **environment variables**
 
 ---
@@ -52,6 +56,11 @@ pip install -r requirements.txt
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
+### 5️⃣ Running the Application & Evaluations
+```bash
+python app.py
+python -m evals.run_eval
+```
 ---
 
 ## 🎯 Use Cases
@@ -65,6 +74,7 @@ GROQ_API_KEY=your_groq_api_key_here
 ## 🚧 Future Enhancements
 - Web UI using **Streamlit** / **FastAPI**
 - Source citation for answers
-- Multi-document comparison
+- Sandboxed evaluation execution
 - Conversational memory
 - Deployment on cloud platforms
+
